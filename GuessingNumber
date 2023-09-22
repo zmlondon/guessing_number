@@ -10,23 +10,7 @@ logo = """
         \/            \/     \/     \/        \//_____/           \/     \/      \/     \/ 
         """
 
-def compare(user_guess, player, turns):
-    if player > user_guess:
-        print("Too low.")
-        return turns - 1
-    elif player < user_guess:
-        print("Too high.")
-        return turns - 1
-    else:
-        print(f"You got it! The answer was {player}")
 
-#make a function difficulty.
-def set_difficulty():
-    game_level = input("Choose a difficulty. Type 'easy' or 'hard': ")
-    if game_level == "easy":
-        return EASY_LEVEL_TURNS #it will show number of attempts
-    else:
-        return HARD_LEVEL_TURNS 
         
 
 def game():  
@@ -38,8 +22,8 @@ def game():
 
     turns = set_difficulty()
 
-#repeat the guessing functionality if they got it wrong
-# it needs while loop
+    #repeat the guessing functionality if they got it wrong
+    # it needs while loop
     user_guess = 0
     
     while user_guess != player:
@@ -53,8 +37,24 @@ def game():
         elif user_guess != player:
             print("Guess again!")
         
-game()
+#make a function difficulty.
+def set_difficulty():
+    game_level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+    if game_level == "easy":
+        return EASY_LEVEL_TURNS #it will show number of attempts
+    else:
+        return HARD_LEVEL_TURNS 
+def compare(user_guess, player, turns):
+    if player > user_guess:
+        print("Too low.")
+        return turns - 1
+    elif player < user_guess:
+        print("Too high.")
+        return turns - 1
+    else:
+        print(f"You got it! The answer was {player}")
 
+game()
     
 
 
